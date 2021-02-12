@@ -4,7 +4,7 @@ name: content-init
 on:
   push:
     branches:
-    - master
+    - main
     paths:
     - 'content-init/**'
 
@@ -14,9 +14,9 @@ on:
 # Environment variables are defined so that they can be used throughout the job definitions.
 env:
   imageRepository: 'content-init'
-  resourceGroupName: 'Fabmedical-[SHORT_SUFFIX]'
-  containerRegistryName: 'fabmedical[SHORT_SUFFIX]'
-  containerRegistry: 'fabmedical[SHORT_SUFFIX].azurecr.io'
+  resourceGroupName: 'Fabmedical-yrh'
+  containerRegistryName: 'fabmedicalYRH'
+  containerRegistry: 'fabmedicalYRH.azurecr.io'
   dockerfilePath: './content-init'
   tag: '${{ github.run_id  }}'
 
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Checkout the repo
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     - name: Build and push an image to container registry
       uses: docker/build-push-action@v1
